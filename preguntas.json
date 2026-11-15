@@ -1,0 +1,470 @@
+[
+  {
+    "modulo": "Fondos de inversión",
+    "pregunta": "¿Cómo se calcula el precio de una acción de un fondo de inversión?",
+    "opciones": [
+      "Activos netos (activos menos pasivos) entre el número de acciones en circulación",
+      "Activos totales entre el número de acciones autorizadas",
+      "Capital social entre el número de inversionistas",
+      "Promedio del precio de los últimos 30 días"
+    ],
+    "correcta": 0,
+    "explicacion": "El precio de valuación resulta de dividir los activos netos (activos totales menos pasivos) entre las acciones en circulación."
+  },
+  {
+    "modulo": "Fondos de inversión",
+    "pregunta": "¿Qué autoridad supervisa a los fondos de inversión en México?",
+    "opciones": [
+      "La Comisión Nacional Bancaria y de Valores (CNBV)",
+      "El Servicio de Administración Tributaria (SAT)",
+      "La Secretaría de Economía",
+      "El INEGI"
+    ],
+    "correcta": 0,
+    "explicacion": "Los fondos de inversión se rigen por la Ley de Fondos de Inversión y son supervisados por la CNBV."
+  },
+  {
+    "modulo": "Fondos de inversión",
+    "pregunta": "Un fondo de deuda con mayor duración, frente a uno de menor duración, tiene en general:",
+    "opciones": [
+      "Mayor sensibilidad a cambios en las tasas de interés",
+      "Menor sensibilidad a cambios en las tasas de interés",
+      "Ninguna relación con las tasas de interés",
+      "Rendimientos garantizados"
+    ],
+    "correcta": 0,
+    "explicacion": "A mayor duración, mayor es el cambio porcentual en el precio ante un movimiento en las tasas."
+  },
+  {
+    "modulo": "Fondos de inversión",
+    "pregunta": "¿Cuál es la función principal de una sociedad operadora de fondos de inversión?",
+    "opciones": [
+      "Administrar los activos del fondo y prestar servicios como la distribución y la valuación de sus acciones",
+      "Emitir deuda gubernamental",
+      "Regular a los intermediarios bursátiles",
+      "Calificar el riesgo crediticio de los emisores"
+    ],
+    "correcta": 0,
+    "explicacion": "La operadora administra el fondo y presta servicios de administración de activos, distribución y otros relacionados con su operación."
+  },
+  {
+    "modulo": "Fondos de inversión",
+    "pregunta": "Un inversionista compró 1,000 acciones de un fondo a 12.50 y hoy valen 13.00. ¿Cuál es su rendimiento en el periodo?",
+    "opciones": [
+      "4.00%",
+      "3.85%",
+      "0.50%",
+      "5.00%"
+    ],
+    "correcta": 0,
+    "explicacion": "(13.00 − 12.50) / 12.50 = 0.04, es decir 4.00%."
+  },
+  {
+    "modulo": "Análisis económico",
+    "pregunta": "¿Cuál es la meta de inflación del Banco de México?",
+    "opciones": [
+      "3% con un intervalo de variabilidad de más o menos un punto porcentual",
+      "5% fijo",
+      "0% de inflación",
+      "10% con intervalo de más o menos dos puntos"
+    ],
+    "correcta": 0,
+    "explicacion": "Banxico mantiene una meta de 3% anual, con un intervalo de variabilidad de ±1 punto porcentual."
+  },
+  {
+    "modulo": "Análisis económico",
+    "pregunta": "Si el Banco de México quiere reducir la inflación, ¿qué postura de política monetaria adopta normalmente?",
+    "opciones": [
+      "Restrictiva, elevando la tasa de referencia",
+      "Expansiva, reduciendo la tasa de referencia",
+      "Aumenta el gasto público",
+      "Reduce los impuestos"
+    ],
+    "correcta": 0,
+    "explicacion": "Una postura restrictiva (tasas más altas) enfría la demanda agregada y ayuda a contener la inflación."
+  },
+  {
+    "modulo": "Análisis económico",
+    "pregunta": "El PIB mide:",
+    "opciones": [
+      "El valor de los bienes y servicios finales producidos en un país durante un periodo",
+      "La suma de todas las exportaciones",
+      "El ahorro total de las familias",
+      "El valor de todas las transacciones, incluidos los bienes intermedios"
+    ],
+    "correcta": 0,
+    "explicacion": "El PIB contabiliza solo bienes y servicios finales para evitar la doble contabilidad."
+  },
+  {
+    "modulo": "Análisis económico",
+    "pregunta": "Si el tipo de cambio pasa de 17.00 a 18.00 pesos por dólar, el peso:",
+    "opciones": [
+      "Se depreció frente al dólar",
+      "Se apreció frente al dólar",
+      "No cambió de valor",
+      "Se revaluó por decreto"
+    ],
+    "correcta": 0,
+    "explicacion": "Se necesitan más pesos para comprar un dólar, por lo tanto el peso se depreció."
+  },
+  {
+    "modulo": "Análisis económico",
+    "pregunta": "Con una tasa nominal de 10% y una inflación de 4%, ¿cuál es la tasa real aproximada usando la ecuación de Fisher exacta?",
+    "opciones": [
+      "5.77%",
+      "6.00%",
+      "14.40%",
+      "2.50%"
+    ],
+    "correcta": 0,
+    "explicacion": "Tasa real = (1 + 0.10) / (1 + 0.04) − 1 = 5.77%."
+  },
+  {
+    "modulo": "Análisis financiero",
+    "pregunta": "¿Cómo se calcula la razón circulante?",
+    "opciones": [
+      "Activo circulante entre pasivo circulante",
+      "Pasivo total entre activo total",
+      "Utilidad neta entre capital contable",
+      "Activo circulante menos inventarios entre pasivo circulante"
+    ],
+    "correcta": 0,
+    "explicacion": "La razón circulante mide liquidez: activo circulante / pasivo circulante. La opción con inventarios restados es la prueba ácida."
+  },
+  {
+    "modulo": "Análisis financiero",
+    "pregunta": "El ROE (rendimiento sobre capital) se calcula como:",
+    "opciones": [
+      "Utilidad neta entre capital contable",
+      "Utilidad neta entre activos totales",
+      "Ventas entre capital contable",
+      "Utilidad de operación entre ventas"
+    ],
+    "correcta": 0,
+    "explicacion": "ROE = utilidad neta / capital contable. Utilidad neta entre activos totales es el ROA."
+  },
+  {
+    "modulo": "Análisis financiero",
+    "pregunta": "Según el criterio del Valor Presente Neto (VPN), un proyecto se acepta cuando:",
+    "opciones": [
+      "El VPN es mayor que cero",
+      "El VPN es menor que cero",
+      "El VPN es exactamente igual a la inversión inicial",
+      "El periodo de recuperación es mayor a cinco años"
+    ],
+    "correcta": 0,
+    "explicacion": "Un VPN positivo indica que el proyecto genera valor por encima del costo de capital."
+  },
+  {
+    "modulo": "Análisis financiero",
+    "pregunta": "¿Cuál es el valor presente de 1,210 pesos que se recibirán dentro de 2 años, con una tasa de descuento anual de 10%?",
+    "opciones": [
+      "1,000",
+      "1,100",
+      "968",
+      "1,089"
+    ],
+    "correcta": 0,
+    "explicacion": "VP = 1,210 / (1.10)^2 = 1,000."
+  },
+  {
+    "modulo": "Análisis financiero",
+    "pregunta": "La razón Precio/Utilidad (P/U) se obtiene dividiendo:",
+    "opciones": [
+      "El precio de la acción entre la utilidad por acción",
+      "La utilidad por acción entre el precio de la acción",
+      "El valor en libros entre el precio",
+      "El dividendo entre el precio"
+    ],
+    "correcta": 0,
+    "explicacion": "P/U = precio / utilidad por acción. Indica cuántas veces la utilidad paga el mercado por la acción."
+  },
+  {
+    "modulo": "Normatividad y ética",
+    "pregunta": "¿Qué ley regula de forma principal al mercado de valores en México?",
+    "opciones": [
+      "La Ley del Mercado de Valores",
+      "La Ley del Impuesto sobre la Renta",
+      "La Ley Federal del Trabajo",
+      "La Ley de Comercio Exterior"
+    ],
+    "correcta": 0,
+    "explicacion": "La Ley del Mercado de Valores (LMV) es el ordenamiento central del mercado de valores mexicano."
+  },
+  {
+    "modulo": "Normatividad y ética",
+    "pregunta": "Ante un conflicto de interés entre el intermediario y su cliente, lo correcto es:",
+    "opciones": [
+      "Anteponer el interés del cliente e informar de la situación",
+      "Priorizar la comisión del intermediario",
+      "Ocultarlo si el cliente no pregunta",
+      "Resolverlo siempre a favor de la institución"
+    ],
+    "correcta": 0,
+    "explicacion": "Los códigos de ética bursátil exigen actuar con lealtad hacia el cliente y transparentar los conflictos."
+  },
+  {
+    "modulo": "Normatividad y ética",
+    "pregunta": "Utilizar información privilegiada para obtener un beneficio en una operación bursátil es:",
+    "opciones": [
+      "Una conducta prohibida y sancionable",
+      "Una práctica permitida si el monto es pequeño",
+      "Válida si se informa después al cliente",
+      "Aceptable para analistas internos"
+    ],
+    "correcta": 0,
+    "explicacion": "El uso de información privilegiada atenta contra la integridad y equidad del mercado y está sancionado."
+  },
+  {
+    "modulo": "Normatividad y ética",
+    "pregunta": "Antes de recomendar un producto financiero, el asesor debe:",
+    "opciones": [
+      "Conocer el perfil y los objetivos del cliente y verificar que el producto sea adecuado",
+      "Ofrecer siempre el producto con mayor comisión",
+      "Recomendar lo mismo a todos los clientes",
+      "Garantizar rendimientos para generar confianza"
+    ],
+    "correcta": 0,
+    "explicacion": "La recomendación debe basarse en el perfil de inversión, objetivos, horizonte y tolerancia al riesgo del cliente. Nunca se deben garantizar rendimientos."
+  },
+  {
+    "modulo": "Normatividad y ética",
+    "pregunta": "¿Qué principio ético se vulnera al garantizar a un cliente un rendimiento en un instrumento de renta variable?",
+    "opciones": [
+      "Veracidad y transparencia en la información",
+      "Ninguno, es práctica comercial normal",
+      "Solo un tema fiscal",
+      "Competencia desleal únicamente"
+    ],
+    "correcta": 0,
+    "explicacion": "La renta variable no tiene rendimiento garantizado; prometerlo es engañar al cliente."
+  },
+  {
+    "modulo": "Deuda",
+    "pregunta": "¿Cuál es el valor nominal de un Cete y cómo se emite?",
+    "opciones": [
+      "10 pesos, a descuento y sin pago de cupones",
+      "100 pesos, con cupón mensual",
+      "1,000 pesos, con cupón semestral",
+      "10 pesos, a prima con cupón"
+    ],
+    "correcta": 0,
+    "explicacion": "Los Cetes tienen valor nominal de 10 pesos, se colocan a descuento y son cero cupón."
+  },
+  {
+    "modulo": "Deuda",
+    "pregunta": "¿Cuál es el precio de un Cete a 28 días con tasa de rendimiento de 10% (tasa simple, base 360), valor nominal de 10 pesos?",
+    "opciones": [
+      "Aproximadamente 9.9228",
+      "Aproximadamente 9.0909",
+      "Aproximadamente 9.7222",
+      "Aproximadamente 9.2000"
+    ],
+    "correcta": 0,
+    "explicacion": "Precio = 10 / (1 + 0.10 × 28/360) = 10 / 1.007778 ≈ 9.9228."
+  },
+  {
+    "modulo": "Deuda",
+    "pregunta": "¿Cuál es la característica principal de los Udibonos?",
+    "opciones": [
+      "Están denominados en UDIs, por lo que protegen contra la inflación",
+      "Pagan una tasa flotante ligada a la TIIE",
+      "Se denominan en dólares",
+      "No pagan intereses"
+    ],
+    "correcta": 0,
+    "explicacion": "Los Udibonos están denominados en UDIs, que se ajustan con la inflación, y pagan una tasa real fija."
+  },
+  {
+    "modulo": "Deuda",
+    "pregunta": "Si las tasas de interés de mercado suben, el precio de un bono de tasa fija:",
+    "opciones": [
+      "Baja",
+      "Sube",
+      "No cambia",
+      "Se duplica"
+    ],
+    "correcta": 0,
+    "explicacion": "El precio y el rendimiento de un bono tienen relación inversa."
+  },
+  {
+    "modulo": "Deuda",
+    "pregunta": "Un bono tiene duración modificada de 5. Si el rendimiento de mercado sube 1 punto porcentual, el cambio aproximado en su precio es:",
+    "opciones": [
+      "Una baja de 5%",
+      "Un alza de 5%",
+      "Una baja de 1%",
+      "Una baja de 0.2%"
+    ],
+    "correcta": 0,
+    "explicacion": "ΔP/P ≈ −Duración modificada × Δy = −5 × 1% = −5%."
+  },
+  {
+    "modulo": "Deuda",
+    "pregunta": "Un bono cotiza a prima (por encima de su valor nominal) cuando:",
+    "opciones": [
+      "Su tasa cupón es mayor que el rendimiento de mercado",
+      "Su tasa cupón es menor que el rendimiento de mercado",
+      "Su tasa cupón es igual al rendimiento de mercado",
+      "Vence en menos de un año"
+    ],
+    "correcta": 0,
+    "explicacion": "Si el bono paga más cupón que el rendimiento exigido por el mercado, su precio sube por encima del nominal."
+  },
+  {
+    "modulo": "Capitales",
+    "pregunta": "Una oferta pública inicial (OPI) de acciones se realiza en el:",
+    "opciones": [
+      "Mercado primario",
+      "Mercado secundario",
+      "Mercado de dinero",
+      "Mercado de derivados"
+    ],
+    "correcta": 0,
+    "explicacion": "En el mercado primario el emisor coloca por primera vez sus valores entre el público inversionista."
+  },
+  {
+    "modulo": "Capitales",
+    "pregunta": "El S&P/BMV IPC pondera a sus emisoras principalmente por:",
+    "opciones": [
+      "Su capitalización de mercado ajustada por acciones flotantes",
+      "El mismo peso para cada emisora",
+      "Su precio por acción",
+      "Su volumen de deuda"
+    ],
+    "correcta": 0,
+    "explicacion": "El IPC es un índice ponderado por capitalización ajustada por el flotante."
+  },
+  {
+    "modulo": "Capitales",
+    "pregunta": "Según el CAPM, con tasa libre de riesgo de 8%, beta de 1.2 y rendimiento esperado del mercado de 12%, el rendimiento esperado de la acción es:",
+    "opciones": [
+      "12.8%",
+      "14.4%",
+      "9.6%",
+      "13.6%"
+    ],
+    "correcta": 0,
+    "explicacion": "E(R) = Rf + β (Rm − Rf) = 8% + 1.2 × (12% − 8%) = 12.8%."
+  },
+  {
+    "modulo": "Capitales",
+    "pregunta": "Una orden limitada de compra a 50 pesos se ejecuta:",
+    "opciones": [
+      "A 50 pesos o a un mejor precio (menor)",
+      "Siempre a precio de mercado",
+      "Solo a precios superiores a 50",
+      "Al cierre del día sin importar el precio"
+    ],
+    "correcta": 0,
+    "explicacion": "Una orden limitada fija el precio máximo de compra (o mínimo de venta)."
+  },
+  {
+    "modulo": "Capitales",
+    "pregunta": "Un split (o división de acciones) de 2 a 1, en igualdad de condiciones:",
+    "opciones": [
+      "Duplica el número de acciones y reduce a la mitad el precio, sin cambiar la capitalización de mercado",
+      "Duplica la capitalización de mercado",
+      "Reduce a la mitad el número de acciones",
+      "Genera un dividendo en efectivo"
+    ],
+    "correcta": 0,
+    "explicacion": "El split cambia el número de acciones y el precio por acción, pero el valor total de la empresa no cambia."
+  },
+  {
+    "modulo": "Capitales",
+    "pregunta": "¿Cuáles son las bolsas de valores que operan en México?",
+    "opciones": [
+      "La Bolsa Mexicana de Valores (BMV) y la Bolsa Institucional de Valores (BIVA)",
+      "NYSE y NASDAQ",
+      "MexDer y Asigna",
+      "Solo la BMV"
+    ],
+    "correcta": 0,
+    "explicacion": "En México operan la BMV y la BIVA. MexDer es el mercado de derivados y Asigna su cámara de compensación."
+  },
+  {
+    "modulo": "Derivados y riesgos",
+    "pregunta": "El comprador de una opción call tiene:",
+    "opciones": [
+      "El derecho, pero no la obligación, de comprar el activo subyacente al precio de ejercicio",
+      "La obligación de comprar el activo subyacente",
+      "El derecho de vender el activo subyacente",
+      "La obligación de vender el activo subyacente"
+    ],
+    "correcta": 0,
+    "explicacion": "Quien compra una call adquiere el derecho de compra y paga una prima por ello. Su pérdida máxima es la prima."
+  },
+  {
+    "modulo": "Derivados y riesgos",
+    "pregunta": "Se compra una call con precio de ejercicio de 100 y prima de 8. Al vencimiento el subyacente vale 120. ¿Cuál es la ganancia neta por acción?",
+    "opciones": [
+      "12",
+      "20",
+      "8",
+      "28"
+    ],
+    "correcta": 0,
+    "explicacion": "Valor intrínseco = 120 − 100 = 20; menos la prima pagada de 8 = 12."
+  },
+  {
+    "modulo": "Derivados y riesgos",
+    "pregunta": "¿Cómo se llama la cámara de compensación y liquidación del mercado de derivados mexicano (MexDer)?",
+    "opciones": [
+      "Asigna",
+      "Indeval",
+      "Valmer",
+      "Banxico"
+    ],
+    "correcta": 0,
+    "explicacion": "Asigna, Compensación y Liquidación es la cámara de compensación de MexDer. Indeval es el depósito central de valores."
+  },
+  {
+    "modulo": "Derivados y riesgos",
+    "pregunta": "Una empresa mexicana tiene una deuda en dólares por pagar en 6 meses y teme una depreciación del peso. Para cubrirse puede:",
+    "opciones": [
+      "Comprar futuros de dólar",
+      "Vender futuros de dólar",
+      "Vender una call sobre el dólar sin cobertura",
+      "No hacer nada, pues los futuros no cubren riesgo cambiario"
+    ],
+    "correcta": 0,
+    "explicacion": "Al comprar futuros de dólar fija el tipo de cambio al que adquirirá los dólares, neutralizando la depreciación del peso."
+  },
+  {
+    "modulo": "Derivados y riesgos",
+    "pregunta": "El Valor en Riesgo (VaR) expresa:",
+    "opciones": [
+      "La pérdida máxima esperada en un horizonte dado y con un nivel de confianza determinado",
+      "La ganancia mínima garantizada",
+      "La volatilidad histórica anual",
+      "El rendimiento esperado de un portafolio"
+    ],
+    "correcta": 0,
+    "explicacion": "Por ejemplo, un VaR diario de 1 millón al 95% significa que en 95% de los días no se espera perder más de esa cantidad."
+  },
+  {
+    "modulo": "Derivados y riesgos",
+    "pregunta": "¿Qué tipo de riesgo mide la beta de una acción?",
+    "opciones": [
+      "El riesgo sistemático (de mercado), que no se elimina con diversificación",
+      "El riesgo no sistemático, que se elimina diversificando",
+      "El riesgo de crédito del emisor",
+      "El riesgo operativo de la casa de bolsa"
+    ],
+    "correcta": 0,
+    "explicacion": "La beta mide la sensibilidad de la acción frente al mercado, es decir, el riesgo sistemático."
+  },
+  {
+    "modulo": "Derivados y riesgos",
+    "pregunta": "En la operación de futuros, la aportación inicial mínima tiene como finalidad:",
+    "opciones": [
+      "Respaldar el cumplimiento de las obligaciones de las partes",
+      "Pagar la prima del contrato",
+      "Cubrir las comisiones del asesor",
+      "Garantizar un rendimiento al inversionista"
+    ],
+    "correcta": 0,
+    "explicacion": "Las aportaciones (márgenes) funcionan como garantía; a diferencia de la prima de una opción, no son un costo definitivo."
+  }
+]
