@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulacro AMIB Figura 3</title>
+<style>
+:root{--bg:#f5f6f3;--surface:#fff;--ink:#1c2430;--muted:#5d6877;--line:#d4d9d1;--accent:#0f6b66;--accent-ink:#fff;--ok:#1f7a45;--okbg:#e4f3ea;--bad:#b3402f;--badbg:#f9e7e3;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#14191f;--surface:#1c232b;--ink:#e8ebe6;--muted:#9aa5b1;--line:#2f3945;--accent:#5fc2ba;--accent-ink:#0b1c1b;--ok:#6fd096;--okbg:#17301f;--bad:#f09685;--badbg:#3a1f1a;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:680px;margin:0 auto;padding:28px 16px 64px}
+h1{font:600 1.7rem/1.2 Georgia,"Times New Roman",serif;margin:0 0 6px}
+h2{font:600 1.1rem/1.3 system-ui,sans-serif;margin:28px 0 10px}
+p{margin:0 0 12px}
+.muted{color:var(--muted);font-size:.92rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+label,legend{display:block;font-weight:600;margin:16px 0 6px;padding:0}
+fieldset{border:0;margin:0;padding:0}
+select,input[type=number]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:9px 10px}
+.radio{display:flex;gap:10px;align-items:flex-start;font-weight:400;margin:8px 0}
+.radio input{margin-top:5px}
+button{font:inherit;cursor:pointer;border-radius:6px;padding:10px 18px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+button:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.top{display:flex;justify-content:space-between;gap:12px;font-size:.92rem;color:var(--muted);margin-bottom:8px}
+.track{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:22px}
+#bar{height:100%;width:0;background:var(--accent);transition:width .25s}
+#preg{font:1.25rem/1.45 Georgia,"Times New Roman",serif;margin:6px 0 18px}
+.opt{display:flex;gap:12px;width:100%;text-align:left;margin:0 0 10px;padding:12px 14px;border-radius:8px}
+.opt b{min-width:1.4em;color:var(--muted)}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt.sel{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.opt.ok{background:var(--okbg);border-color:var(--ok);opacity:1;color:var(--ink)}
+.opt.bad{background:var(--badbg);border-color:var(--bad);opacity:1;color:var(--ink)}
+#fb{padding:12px 14px;border-radius:8px;margin:14px 0;border-left:4px solid var(--ok);background:var(--okbg)}
+#fb.bad{border-left-color:var(--bad);background:var(--badbg)}
+.actions{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.score{font:600 2.6rem/1 Georgia,serif;margin:4px 0}
+.row{display:grid;grid-template-columns:1fr auto;gap:4px 12px;margin:12px 0}
+.row .track{grid-column:1/-1;margin:0;height:8px}
+.row .low{background:var(--bad)}
+.err{border-top:1px solid var(--line);padding:14px 0}
+.err p{margin:4px 0}
+.gates{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:10px 0}
+.gate{border:1px solid var(--line);border-left-width:5px;border-radius:8px;padding:10px 12px}
+.gate.ok{border-left-color:var(--ok);background:var(--okbg)}
+.gate.no{border-left-color:var(--bad);background:var(--badbg)}
+.gate b{display:block}
+.verdict{font-weight:600;margin:8px 0}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+<section id="setup">
+  <h1>Simulacro AMIB Figura 3</h1>
+  <p class="muted">Práctica para el examen de Asesor en Estrategias de Inversión. Preguntas de elaboración propia, no son reactivos oficiales ni tienen relación con la AMIB. Verifica los datos con tu manual vigente. Los resultados se miden por candado: deuda, capitales, derivados y ética.</p>
+  <div class="card">
+    <label for="mod">Qué practicar</label>
+    <select id="mod"></select>
+    <label for="num">Número de preguntas</label>
+    <input id="num" type="number" min="1" value="30">
+    <fieldset>
+      <legend>Modo</legend>
+      <label class="radio"><input type="radio" name="modo" value="estudio" checked><span>Estudio: te dice si acertaste y por qué después de cada pregunta.</span></label>
+      <label class="radio"><input type="radio" name="modo" value="examen"><span>Examen: sin retroalimentación hasta el final.</span></label>
+    </fieldset>
+    <label for="min">Límite de tiempo en minutos (0 = sin límite)</label>
+    <input id="min" type="number" min="0" value="0">
+    <label for="ref">Mínimo de referencia por candado (%)</label>
+    <input id="ref" type="number" min="1" max="100" value="60">
+    <p style="margin-top:20px"><button id="go" class="primary" type="button">Comenzar simulacro</button></p>
+  </div>
+</section>
+
+<section id="quiz" hidden>
+  <div class="top"><span id="prog"></span><span id="clock"></span></div>
+  <div class="track"><div id="bar"></div></div>
+  <div class="muted" id="modname"></div>
+  <p id="preg"></p>
+  <div id="opts"></div>
+  <div id="fb" hidden></div>
+  <div class="actions">
+    <button id="stop" type="button">Terminar ahora</button>
+    <button id="next" class="primary" type="button" disabled>Siguiente</button>
+  </div>
+</section>
+
+<section id="result" hidden>
+  <h1>Resultado</h1>
+  <div class="card">
+    <div class="score" id="score"></div>
+    <p class="muted" id="time"></p>
+    <div id="gates"></div><h2>Por módulo</h2>
+    <div id="bymod"></div>
+    <p class="muted">El mínimo es una referencia de estudio, no el puntaje oficial de la AMIB.</p>
+  </div>
+  <div id="errs"></div>
+  <div class="actions" style="justify-content:flex-start">
+    <button id="again" class="primary" type="button">Nuevo simulacro</button>
+    <button id="redo" type="button" hidden>Repetir solo las falladas</button>
+  </div>
+</section>
+</main>
+
+<script>
+const BANCO = [{"modulo": "Fondos de inversión", "pregunta": "¿Cómo se calcula el precio de una acción de un fondo de inversión?", "opciones": ["Activos netos (activos menos pasivos) entre el número de acciones en circulación", "Activos totales entre el número de acciones autorizadas", "Capital social entre el número de inversionistas", "Promedio del precio de los últimos 30 días"], "correcta": 0, "explicacion": "El precio de valuación resulta de dividir los activos netos (activos totales menos pasivos) entre las acciones en circulación."}, {"modulo": "Fondos de inversión", "pregunta": "¿Qué autoridad supervisa a los fondos de inversión en México?", "opciones": ["La Comisión Nacional Bancaria y de Valores (CNBV)", "El Servicio de Administración Tributaria (SAT)", "La Secretaría de Economía", "El INEGI"], "correcta": 0, "explicacion": "Los fondos de inversión se rigen por la Ley de Fondos de Inversión y son supervisados por la CNBV."}, {"modulo": "Fondos de inversión", "pregunta": "Un fondo de deuda con mayor duración, frente a uno de menor duración, tiene en general:", "opciones": ["Mayor sensibilidad a cambios en las tasas de interés", "Menor sensibilidad a cambios en las tasas de interés", "Ninguna relación con las tasas de interés", "Rendimientos garantizados"], "correcta": 0, "explicacion": "A mayor duración, mayor es el cambio porcentual en el precio ante un movimiento en las tasas."}, {"modulo": "Fondos de inversión", "pregunta": "¿Cuál es la función principal de una sociedad operadora de fondos de inversión?", "opciones": ["Administrar los activos del fondo y prestar servicios como la distribución y la valuación de sus acciones", "Emitir deuda gubernamental", "Regular a los intermediarios bursátiles", "Calificar el riesgo crediticio de los emisores"], "correcta": 0, "explicacion": "La operadora administra el fondo y presta servicios de administración de activos, distribución y otros relacionados con su operación."}, {"modulo": "Fondos de inversión", "pregunta": "Un inversionista compró 1,000 acciones de un fondo a 12.50 y hoy valen 13.00. ¿Cuál es su rendimiento en el periodo?", "opciones": ["4.00%", "3.85%", "0.50%", "5.00%"], "correcta": 0, "explicacion": "(13.00 − 12.50) / 12.50 = 0.04, es decir 4.00%."}, {"modulo": "Análisis económico", "pregunta": "¿Cuál es la meta de inflación del Banco de México?", "opciones": ["3% con un intervalo de variabilidad de más o menos un punto porcentual", "5% fijo", "0% de inflación", "10% con intervalo de más o menos dos puntos"], "correcta": 0, "explicacion": "Banxico mantiene una meta de 3% anual, con un intervalo de variabilidad de ±1 punto porcentual."}, {"modulo": "Análisis económico", "pregunta": "Si el Banco de México quiere reducir la inflación, ¿qué postura de política monetaria adopta normalmente?", "opciones": ["Restrictiva, elevando la tasa de referencia", "Expansiva, reduciendo la tasa de referencia", "Aumenta el gasto público", "Reduce los impuestos"], "correcta": 0, "explicacion": "Una postura restrictiva (tasas más altas) enfría la demanda agregada y ayuda a contener la inflación."}, {"modulo": "Análisis económico", "pregunta": "El PIB mide:", "opciones": ["El valor de los bienes y servicios finales producidos en un país durante un periodo", "La suma de todas las exportaciones", "El ahorro total de las familias", "El valor de todas las transacciones, incluidos los bienes intermedios"], "correcta": 0, "explicacion": "El PIB contabiliza solo bienes y servicios finales para evitar la doble contabilidad."}, {"modulo": "Análisis económico", "pregunta": "Si el tipo de cambio pasa de 17.00 a 18.00 pesos por dólar, el peso:", "opciones": ["Se depreció frente al dólar", "Se apreció frente al dólar", "No cambió de valor", "Se revaluó por decreto"], "correcta": 0, "explicacion": "Se necesitan más pesos para comprar un dólar, por lo tanto el peso se depreció."}, {"modulo": "Análisis económico", "pregunta": "Con una tasa nominal de 10% y una inflación de 4%, ¿cuál es la tasa real aproximada usando la ecuación de Fisher exacta?", "opciones": ["5.77%", "6.00%", "14.40%", "2.50%"], "correcta": 0, "explicacion": "Tasa real = (1 + 0.10) / (1 + 0.04) − 1 = 5.77%."}, {"modulo": "Análisis financiero", "pregunta": "¿Cómo se calcula la razón circulante?", "opciones": ["Activo circulante entre pasivo circulante", "Pasivo total entre activo total", "Utilidad neta entre capital contable", "Activo circulante menos inventarios entre pasivo circulante"], "correcta": 0, "explicacion": "La razón circulante mide liquidez: activo circulante / pasivo circulante. La opción con inventarios restados es la prueba ácida."}, {"modulo": "Análisis financiero", "pregunta": "El ROE (rendimiento sobre capital) se calcula como:", "opciones": ["Utilidad neta entre capital contable", "Utilidad neta entre activos totales", "Ventas entre capital contable", "Utilidad de operación entre ventas"], "correcta": 0, "explicacion": "ROE = utilidad neta / capital contable. Utilidad neta entre activos totales es el ROA."}, {"modulo": "Análisis financiero", "pregunta": "Según el criterio del Valor Presente Neto (VPN), un proyecto se acepta cuando:", "opciones": ["El VPN es mayor que cero", "El VPN es menor que cero", "El VPN es exactamente igual a la inversión inicial", "El periodo de recuperación es mayor a cinco años"], "correcta": 0, "explicacion": "Un VPN positivo indica que el proyecto genera valor por encima del costo de capital."}, {"modulo": "Análisis financiero", "pregunta": "¿Cuál es el valor presente de 1,210 pesos que se recibirán dentro de 2 años, con una tasa de descuento anual de 10%?", "opciones": ["1,000", "1,100", "968", "1,089"], "correcta": 0, "explicacion": "VP = 1,210 / (1.10)^2 = 1,000."}, {"modulo": "Análisis financiero", "pregunta": "La razón Precio/Utilidad (P/U) se obtiene dividiendo:", "opciones": ["El precio de la acción entre la utilidad por acción", "La utilidad por acción entre el precio de la acción", "El valor en libros entre el precio", "El dividendo entre el precio"], "correcta": 0, "explicacion": "P/U = precio / utilidad por acción. Indica cuántas veces la utilidad paga el mercado por la acción."}, {"modulo": "Normatividad y ética", "pregunta": "¿Qué ley regula de forma principal al mercado de valores en México?", "opciones": ["La Ley del Mercado de Valores", "La Ley del Impuesto sobre la Renta", "La Ley Federal del Trabajo", "La Ley de Comercio Exterior"], "correcta": 0, "explicacion": "La Ley del Mercado de Valores (LMV) es el ordenamiento central del mercado de valores mexicano."}, {"modulo": "Normatividad y ética", "pregunta": "Ante un conflicto de interés entre el intermediario y su cliente, lo correcto es:", "opciones": ["Anteponer el interés del cliente e informar de la situación", "Priorizar la comisión del intermediario", "Ocultarlo si el cliente no pregunta", "Resolverlo siempre a favor de la institución"], "correcta": 0, "explicacion": "Los códigos de ética bursátil exigen actuar con lealtad hacia el cliente y transparentar los conflictos."}, {"modulo": "Normatividad y ética", "pregunta": "Utilizar información privilegiada para obtener un beneficio en una operación bursátil es:", "opciones": ["Una conducta prohibida y sancionable", "Una práctica permitida si el monto es pequeño", "Válida si se informa después al cliente", "Aceptable para analistas internos"], "correcta": 0, "explicacion": "El uso de información privilegiada atenta contra la integridad y equidad del mercado y está sancionado."}, {"modulo": "Normatividad y ética", "pregunta": "Antes de recomendar un producto financiero, el asesor debe:", "opciones": ["Conocer el perfil y los objetivos del cliente y verificar que el producto sea adecuado", "Ofrecer siempre el producto con mayor comisión", "Recomendar lo mismo a todos los clientes", "Garantizar rendimientos para generar confianza"], "correcta": 0, "explicacion": "La recomendación debe basarse en el perfil de inversión, objetivos, horizonte y tolerancia al riesgo del cliente. Nunca se deben garantizar rendimientos."}, {"modulo": "Normatividad y ética", "pregunta": "¿Qué principio ético se vulnera al garantizar a un cliente un rendimiento en un instrumento de renta variable?", "opciones": ["Veracidad y transparencia en la información", "Ninguno, es práctica comercial normal", "Solo un tema fiscal", "Competencia desleal únicamente"], "correcta": 0, "explicacion": "La renta variable no tiene rendimiento garantizado; prometerlo es engañar al cliente."}, {"modulo": "Deuda", "pregunta": "¿Cuál es el valor nominal de un Cete y cómo se emite?", "opciones": ["10 pesos, a descuento y sin pago de cupones", "100 pesos, con cupón mensual", "1,000 pesos, con cupón semestral", "10 pesos, a prima con cupón"], "correcta": 0, "explicacion": "Los Cetes tienen valor nominal de 10 pesos, se colocan a descuento y son cero cupón."}, {"modulo": "Deuda", "pregunta": "¿Cuál es el precio de un Cete a 28 días con tasa de rendimiento de 10% (tasa simple, base 360), valor nominal de 10 pesos?", "opciones": ["Aproximadamente 9.9228", "Aproximadamente 9.0909", "Aproximadamente 9.7222", "Aproximadamente 9.2000"], "correcta": 0, "explicacion": "Precio = 10 / (1 + 0.10 × 28/360) = 10 / 1.007778 ≈ 9.9228."}, {"modulo": "Deuda", "pregunta": "¿Cuál es la característica principal de los Udibonos?", "opciones": ["Están denominados en UDIs, por lo que protegen contra la inflación", "Pagan una tasa flotante ligada a la TIIE", "Se denominan en dólares", "No pagan intereses"], "correcta": 0, "explicacion": "Los Udibonos están denominados en UDIs, que se ajustan con la inflación, y pagan una tasa real fija."}, {"modulo": "Deuda", "pregunta": "Si las tasas de interés de mercado suben, el precio de un bono de tasa fija:", "opciones": ["Baja", "Sube", "No cambia", "Se duplica"], "correcta": 0, "explicacion": "El precio y el rendimiento de un bono tienen relación inversa."}, {"modulo": "Deuda", "pregunta": "Un bono tiene duración modificada de 5. Si el rendimiento de mercado sube 1 punto porcentual, el cambio aproximado en su precio es:", "opciones": ["Una baja de 5%", "Un alza de 5%", "Una baja de 1%", "Una baja de 0.2%"], "correcta": 0, "explicacion": "ΔP/P ≈ −Duración modificada × Δy = −5 × 1% = −5%."}, {"modulo": "Deuda", "pregunta": "Un bono cotiza a prima (por encima de su valor nominal) cuando:", "opciones": ["Su tasa cupón es mayor que el rendimiento de mercado", "Su tasa cupón es menor que el rendimiento de mercado", "Su tasa cupón es igual al rendimiento de mercado", "Vence en menos de un año"], "correcta": 0, "explicacion": "Si el bono paga más cupón que el rendimiento exigido por el mercado, su precio sube por encima del nominal."}, {"modulo": "Capitales", "pregunta": "Una oferta pública inicial (OPI) de acciones se realiza en el:", "opciones": ["Mercado primario", "Mercado secundario", "Mercado de dinero", "Mercado de derivados"], "correcta": 0, "explicacion": "En el mercado primario el emisor coloca por primera vez sus valores entre el público inversionista."}, {"modulo": "Capitales", "pregunta": "El S&P/BMV IPC pondera a sus emisoras principalmente por:", "opciones": ["Su capitalización de mercado ajustada por acciones flotantes", "El mismo peso para cada emisora", "Su precio por acción", "Su volumen de deuda"], "correcta": 0, "explicacion": "El IPC es un índice ponderado por capitalización ajustada por el flotante."}, {"modulo": "Capitales", "pregunta": "Según el CAPM, con tasa libre de riesgo de 8%, beta de 1.2 y rendimiento esperado del mercado de 12%, el rendimiento esperado de la acción es:", "opciones": ["12.8%", "14.4%", "9.6%", "13.6%"], "correcta": 0, "explicacion": "E(R) = Rf + β (Rm − Rf) = 8% + 1.2 × (12% − 8%) = 12.8%."}, {"modulo": "Capitales", "pregunta": "Una orden limitada de compra a 50 pesos se ejecuta:", "opciones": ["A 50 pesos o a un mejor precio (menor)", "Siempre a precio de mercado", "Solo a precios superiores a 50", "Al cierre del día sin importar el precio"], "correcta": 0, "explicacion": "Una orden limitada fija el precio máximo de compra (o mínimo de venta)."}, {"modulo": "Capitales", "pregunta": "Un split (o división de acciones) de 2 a 1, en igualdad de condiciones:", "opciones": ["Duplica el número de acciones y reduce a la mitad el precio, sin cambiar la capitalización de mercado", "Duplica la capitalización de mercado", "Reduce a la mitad el número de acciones", "Genera un dividendo en efectivo"], "correcta": 0, "explicacion": "El split cambia el número de acciones y el precio por acción, pero el valor total de la empresa no cambia."}, {"modulo": "Capitales", "pregunta": "¿Cuáles son las bolsas de valores que operan en México?", "opciones": ["La Bolsa Mexicana de Valores (BMV) y la Bolsa Institucional de Valores (BIVA)", "NYSE y NASDAQ", "MexDer y Asigna", "Solo la BMV"], "correcta": 0, "explicacion": "En México operan la BMV y la BIVA. MexDer es el mercado de derivados y Asigna su cámara de compensación."}, {"modulo": "Derivados y riesgos", "pregunta": "El comprador de una opción call tiene:", "opciones": ["El derecho, pero no la obligación, de comprar el activo subyacente al precio de ejercicio", "La obligación de comprar el activo subyacente", "El derecho de vender el activo subyacente", "La obligación de vender el activo subyacente"], "correcta": 0, "explicacion": "Quien compra una call adquiere el derecho de compra y paga una prima por ello. Su pérdida máxima es la prima."}, {"modulo": "Derivados y riesgos", "pregunta": "Se compra una call con precio de ejercicio de 100 y prima de 8. Al vencimiento el subyacente vale 120. ¿Cuál es la ganancia neta por acción?", "opciones": ["12", "20", "8", "28"], "correcta": 0, "explicacion": "Valor intrínseco = 120 − 100 = 20; menos la prima pagada de 8 = 12."}, {"modulo": "Derivados y riesgos", "pregunta": "¿Cómo se llama la cámara de compensación y liquidación del mercado de derivados mexicano (MexDer)?", "opciones": ["Asigna", "Indeval", "Valmer", "Banxico"], "correcta": 0, "explicacion": "Asigna, Compensación y Liquidación es la cámara de compensación de MexDer. Indeval es el depósito central de valores."}, {"modulo": "Derivados y riesgos", "pregunta": "Una empresa mexicana tiene una deuda en dólares por pagar en 6 meses y teme una depreciación del peso. Para cubrirse puede:", "opciones": ["Comprar futuros de dólar", "Vender futuros de dólar", "Vender una call sobre el dólar sin cobertura", "No hacer nada, pues los futuros no cubren riesgo cambiario"], "correcta": 0, "explicacion": "Al comprar futuros de dólar fija el tipo de cambio al que adquirirá los dólares, neutralizando la depreciación del peso."}, {"modulo": "Derivados y riesgos", "pregunta": "El Valor en Riesgo (VaR) expresa:", "opciones": ["La pérdida máxima esperada en un horizonte dado y con un nivel de confianza determinado", "La ganancia mínima garantizada", "La volatilidad histórica anual", "El rendimiento esperado de un portafolio"], "correcta": 0, "explicacion": "Por ejemplo, un VaR diario de 1 millón al 95% significa que en 95% de los días no se espera perder más de esa cantidad."}, {"modulo": "Derivados y riesgos", "pregunta": "¿Qué tipo de riesgo mide la beta de una acción?", "opciones": ["El riesgo sistemático (de mercado), que no se elimina con diversificación", "El riesgo no sistemático, que se elimina diversificando", "El riesgo de crédito del emisor", "El riesgo operativo de la casa de bolsa"], "correcta": 0, "explicacion": "La beta mide la sensibilidad de la acción frente al mercado, es decir, el riesgo sistemático."}, {"modulo": "Derivados y riesgos", "pregunta": "En la operación de futuros, la aportación inicial mínima tiene como finalidad:", "opciones": ["Respaldar el cumplimiento de las obligaciones de las partes", "Pagar la prima del contrato", "Cubrir las comisiones del asesor", "Garantizar un rendimiento al inversionista"], "correcta": 0, "explicacion": "Las aportaciones (márgenes) funcionan como garantía; a diferencia de la prima de una opción, no son un costo definitivo."}, {"modulo": "Deuda", "pregunta": "¿Cuál es la duración de Macaulay de un bono cupón cero con 3 años al vencimiento?", "opciones": ["3 años", "1.5 años", "0 años", "Depende del nivel de la tasa"], "correcta": 0, "explicacion": "Su único flujo llega al vencimiento, así que la duración es igual al plazo."}, {"modulo": "Deuda", "pregunta": "Los Bonos M pagan cupón cada:", "opciones": ["182 días", "28 días", "360 días", "Solo al vencimiento"], "correcta": 0, "explicacion": "Los Bonos M son de tasa fija y pagan cupones cada 182 días."}, {"modulo": "Deuda", "pregunta": "Frente a un bono de tasa fija del mismo plazo, un instrumento de tasa flotante tiene:", "opciones": ["Menor riesgo de tasa de interés", "Mayor riesgo de tasa de interés", "Mayor duración", "Ningún riesgo de crédito"], "correcta": 0, "explicacion": "Su cupón se ajusta periódicamente, por eso su precio es poco sensible a las tasas."}, {"modulo": "Deuda", "pregunta": "¿Para qué sirve la convexidad en la valuación de bonos?", "opciones": ["Corregir el error de la aproximación lineal de la duración ante cambios grandes en tasas", "Medir el riesgo de crédito", "Calcular el monto del cupón", "Medir la liquidez del bono"], "correcta": 0, "explicacion": "La duración es una aproximación lineal; la convexidad captura la curvatura precio-tasa."}, {"modulo": "Deuda", "pregunta": "El riesgo de reinversión de un bono con cupones aparece cuando:", "opciones": ["Los cupones se reinvierten a una tasa menor a la original", "El emisor entra en quiebra", "El bono se vende a un precio mayor", "La inflación baja"], "correcta": 0, "explicacion": "Si las tasas bajan, los cupones recibidos se reinvierten a rendimientos menores."}, {"modulo": "Deuda", "pregunta": "En la escala de S&P, el grado de inversión comienza en:", "opciones": ["BBB-", "BB+", "A+", "CCC"], "correcta": 0, "explicacion": "BBB- es la calificación más baja considerada grado de inversión; BB+ o menos es especulativa."}, {"modulo": "Deuda", "pregunta": "Una curva de rendimientos invertida indica que:", "opciones": ["Las tasas de corto plazo son mayores que las de largo plazo", "Las tasas de largo plazo son mayores que las de corto", "Todas las tasas son iguales", "Los precios de los bonos no cambian"], "correcta": 0, "explicacion": "La curva normal es ascendente; la invertida tiene pendiente negativa."}, {"modulo": "Deuda", "pregunta": "El rendimiento al vencimiento (YTM) de un bono es la tasa que:", "opciones": ["Iguala el valor presente de sus flujos con su precio de mercado", "Siempre es igual a la tasa cupón", "Mide solo el rendimiento por cupones", "Fija Banxico en cada emisión"], "correcta": 0, "explicacion": "Es la TIR del bono si se mantiene hasta el vencimiento."}, {"modulo": "Deuda", "pregunta": "Un bono de valor nominal 100 paga cupón anual de 8% y vence en 1 año. Con YTM de 10%, su precio es aproximadamente:", "opciones": ["98.18", "100.00", "102.00", "108.00"], "correcta": 0, "explicacion": "Precio = (100 + 8) / 1.10 = 98.18."}, {"modulo": "Deuda", "pregunta": "En un reporto, el reportador es quien:", "opciones": ["Entrega el dinero y recibe temporalmente los títulos, que devuelve al vencimiento a cambio del precio más un premio", "Entrega los títulos y recibe el efectivo", "Emite los títulos", "Califica la operación"], "correcta": 0, "explicacion": "El reportado entrega títulos y recibe efectivo; el reportador gana el premio."}, {"modulo": "Capitales", "pregunta": "El rendimiento por dividendo (dividend yield) se calcula como:", "opciones": ["Dividendo por acción entre precio de la acción", "Precio entre dividendo por acción", "Utilidad neta entre capital contable", "Dividendos entre ventas"], "correcta": 0, "explicacion": "Mide el rendimiento en efectivo que paga la acción respecto a su precio."}, {"modulo": "Capitales", "pregunta": "EBITDA es la utilidad:", "opciones": ["Antes de intereses, impuestos, depreciación y amortización", "Después de impuestos e intereses", "Neta por acción", "Antes de pagar dividendos"], "correcta": 0, "explicacion": "Aproxima la generación operativa de efectivo de la empresa."}, {"modulo": "Capitales", "pregunta": "El valor en libros por acción es:", "opciones": ["Capital contable entre acciones en circulación", "Activo total entre acciones", "Precio de mercado entre utilidad por acción", "Utilidad neta entre acciones"], "correcta": 0, "explicacion": "Compara el valor contable por acción con su precio de mercado."}, {"modulo": "Capitales", "pregunta": "Para mantener su tratamiento fiscal, una FIBRA debe distribuir cada año al menos:", "opciones": ["95% de su resultado fiscal", "50% de su resultado fiscal", "70% de su utilidad contable", "100% de sus ingresos"], "correcta": 0, "explicacion": "El requisito de distribución mínima es de 95% del resultado fiscal."}, {"modulo": "Capitales", "pregunta": "El Sistema Internacional de Cotizaciones (SIC) permite:", "opciones": ["Negociar desde México valores listados en bolsas del extranjero, incluidos ETFs", "Negociar solo deuda gubernamental", "Operar derivados de MexDer", "Emitir acciones nuevas"], "correcta": 0, "explicacion": "Da acceso a emisoras y fondos cotizados extranjeros a través de intermediarios mexicanos."}, {"modulo": "Capitales", "pregunta": "Indeval es la institución que:", "opciones": ["Custodia, compensa y liquida valores", "Califica emisoras", "Regula a las casas de bolsa", "Fija la tasa de referencia"], "correcta": 0, "explicacion": "Es el depósito central de valores en México."}, {"modulo": "Capitales", "pregunta": "Una acción con beta mayor a 1 es, frente al mercado:", "opciones": ["Más volátil", "Menos volátil", "Igual de volátil", "Libre de riesgo sistemático"], "correcta": 0, "explicacion": "Una beta mayor a 1 amplifica los movimientos del mercado."}, {"modulo": "Capitales", "pregunta": "Con el modelo de Gordon, un dividendo esperado de 5, tasa de descuento de 12% y crecimiento de 4%, el valor de la acción es:", "opciones": ["62.50", "41.67", "31.25", "125.00"], "correcta": 0, "explicacion": "P = D1 / (k − g) = 5 / 0.08 = 62.50."}, {"modulo": "Capitales", "pregunta": "La recompra de acciones propias, en igualdad de condiciones:", "opciones": ["Reduce las acciones en circulación y puede aumentar la utilidad por acción", "Aumenta el capital social", "Diluye a los accionistas", "Reduce el precio por obligación"], "correcta": 0, "explicacion": "Menos acciones en circulación reparten la misma utilidad entre menos títulos."}, {"modulo": "Derivados y riesgos", "pregunta": "El comprador de una put:", "opciones": ["Gana si el subyacente cae lo suficiente por debajo del precio de ejercicio", "Gana si el subyacente sube", "Tiene la obligación de comprar", "Cobra la prima"], "correcta": 0, "explicacion": "La put da el derecho de vender; su valor aumenta cuando el subyacente baja."}, {"modulo": "Derivados y riesgos", "pregunta": "La prima de una opción es:", "opciones": ["El precio que paga el comprador al vendedor por el derecho", "La garantía del vendedor ante la cámara", "El precio de ejercicio", "La comisión del intermediario"], "correcta": 0, "explicacion": "Es el costo de la opción y la pérdida máxima del comprador."}, {"modulo": "Derivados y riesgos", "pregunta": "Una call está dentro del dinero (ITM) cuando:", "opciones": ["El precio del subyacente es mayor que el de ejercicio", "El precio del subyacente es menor que el de ejercicio", "Ambos precios son iguales", "La prima es mayor al valor intrínseco"], "correcta": 0, "explicacion": "Ejercer rendiría un valor intrínseco positivo."}, {"modulo": "Derivados y riesgos", "pregunta": "El vendedor de una call descubierta enfrenta:", "opciones": ["Pérdida potencialmente ilimitada y ganancia máxima igual a la prima", "Pérdida máxima igual a la prima", "Ganancia ilimitada", "Pérdida limitada al precio de ejercicio"], "correcta": 0, "explicacion": "Si el subyacente sube sin límite, la pérdida del vendedor también."}, {"modulo": "Derivados y riesgos", "pregunta": "En un swap de tasas de interés plain vanilla:", "opciones": ["Se intercambian pagos de tasa fija por flotante sobre un monto nocional", "Se intercambia el nocional al inicio", "Se intercambian monedas al vencimiento", "Se compra una opción de tasa"], "correcta": 0, "explicacion": "El nocional no se intercambia; solo los flujos de intereses."}, {"modulo": "Derivados y riesgos", "pregunta": "A diferencia de un forward, un futuro:", "opciones": ["Es estandarizado, se negocia en bolsa y cuenta con cámara de compensación", "Se pacta a la medida entre dos partes", "No requiere garantías", "No tiene vencimiento"], "correcta": 0, "explicacion": "Los forwards son OTC y a la medida."}, {"modulo": "Derivados y riesgos", "pregunta": "Un subyacente vale 100, la tasa es 8% anual y el plazo 90 días (base 360). El precio teórico del futuro, sin dividendos, es:", "opciones": ["102.00", "108.00", "100.80", "98.00"], "correcta": 0, "explicacion": "F = 100 × (1 + 0.08 × 90/360) = 102."}, {"modulo": "Derivados y riesgos", "pregunta": "Se compra una put con ejercicio de 50 y prima de 3. Al vencimiento el subyacente vale 40. La ganancia neta es:", "opciones": ["7", "10", "3", "13"], "correcta": 0, "explicacion": "50 − 40 = 10; menos la prima de 3 = 7."}, {"modulo": "Derivados y riesgos", "pregunta": "La delta de una opción mide:", "opciones": ["El cambio en el precio de la opción ante un cambio de una unidad en el subyacente", "El efecto del paso del tiempo", "La sensibilidad a la volatilidad", "La prima total"], "correcta": 0, "explicacion": "Es la sensibilidad de la opción al precio del subyacente."}, {"modulo": "Derivados y riesgos", "pregunta": "El arbitrajista es quien:", "opciones": ["Busca ganancia sin riesgo aprovechando diferencias de precio", "Se cubre de un riesgo existente", "Asume riesgo esperando que el precio se mueva", "Opera solo con información privilegiada"], "correcta": 0, "explicacion": "El hedger se cubre de un riesgo existente y el especulador asume riesgo; el arbitrajista busca ganar sin asumirlo."}, {"modulo": "Normatividad y ética", "pregunta": "Un asesor debe mantener confidencialidad sobre:", "opciones": ["La información y operaciones de sus clientes", "Solo los montos superiores a un millón", "Nada, si el cliente no lo pidió", "Solo datos fiscales"], "correcta": 0, "explicacion": "La reserva de información del cliente es un deber ético y normativo."}, {"modulo": "Normatividad y ética", "pregunta": "Difundir rumores falsos para mover el precio de una emisora es:", "opciones": ["Manipulación de mercado, conducta prohibida", "Una estrategia permitida de análisis", "Libertad de expresión sin sanciones", "Válido si se hace con recursos propios"], "correcta": 0, "explicacion": "Distorsiona la formación de precios y está sancionado."}, {"modulo": "Normatividad y ética", "pregunta": "Las operaciones inusuales, como parte de la prevención de lavado de dinero, se reportan a:", "opciones": ["La Unidad de Inteligencia Financiera (UIF)", "La AMIB", "Solo al SAT", "El cliente involucrado"], "correcta": 0, "explicacion": "Además, no se debe avisar al cliente del reporte."}, {"modulo": "Normatividad y ética", "pregunta": "Respecto a los recursos del cliente, el intermediario debe:", "opciones": ["Mantenerlos separados de los propios", "Mezclarlos para mayor eficiencia", "Usarlos para cubrir sus pérdidas", "Invertirlos sin avisar"], "correcta": 0, "explicacion": "La segregación protege al cliente."}, {"modulo": "Normatividad y ética", "pregunta": "Aceptar obsequios de alto valor de un emisor que se recomienda a clientes:", "opciones": ["Compromete la independencia y debe evitarse", "Es válido si se declara después", "Es parte normal del trabajo", "Se permite en diciembre"], "correcta": 0, "explicacion": "Genera conflicto de interés."}, {"modulo": "Normatividad y ética", "pregunta": "Operar por cuenta propia anticipándose a una orden grande de un cliente (front running) es:", "opciones": ["Una práctica prohibida", "Una práctica permitida si es rápida", "Aceptable con montos pequeños", "Una forma de dar mejor precio al cliente"], "correcta": 0, "explicacion": "Se aprovecha información de la orden del cliente en beneficio propio."}, {"modulo": "Normatividad y ética", "pregunta": "Al ofrecer un producto, el asesor debe informar al cliente:", "opciones": ["Sus riesgos, costos y características", "Solo el rendimiento esperado", "Solo la comisión", "Nada, si el cliente lo conoce"], "correcta": 0, "explicacion": "La información debe ser clara, veraz y completa."}, {"modulo": "Normatividad y ética", "pregunta": "Recomendar un producto de alto riesgo a un cliente de perfil conservador es:", "opciones": ["Inadecuado respecto a su perfil", "Correcto si deja mayor comisión", "Aceptable si lo pide un amigo", "Obligatorio para diversificar"], "correcta": 0, "explicacion": "La recomendación debe ser idónea para el perfil del cliente."}, {"modulo": "Normatividad y ética", "pregunta": "Para ejercer como asesor en estrategias de inversión se requiere:", "opciones": ["Contar con la certificación vigente", "Solo un título universitario", "Solo un año de experiencia", "Nada si trabaja en un banco"], "correcta": 0, "explicacion": "La Figura 3 acredita la capacidad técnica y ética del asesor."}];
+let REF = 60;
+const L = "abcd", CAND = ["Deuda", "Capitales", "Derivados y riesgos", "Normatividad y ética"], NOM = { "Derivados y riesgos": "Derivados", "Normatividad y ética": "Ética" };
+const $ = s => document.querySelector(s);
+const mk = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt !== undefined) e.textContent = txt; return e; };
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const show = id => { for (const s of ["setup", "quiz", "result"]) $("#" + s).hidden = s !== id; window.scrollTo(0, 0); };
+let S = null;
+
+const modulos = [...new Set(BANCO.map(q => q.modulo))].sort();
+const sel = $("#mod");
+sel.append(new Option("Simulacro por candados (80% de deuda, capitales, derivados y ética)", "__full"), new Option("Todos los módulos por igual", ""));
+modulos.forEach(m => sel.append(new Option(m + (CAND.includes(m) ? " (candado)" : "") + " (" + BANCO.filter(q => q.modulo === m).length + ")", m)));
+const pool = () => BANCO.filter(q => !sel.value || sel.value === "__full" || q.modulo === sel.value);
+function armar(n) {
+  const per = Math.floor(n * 0.2), out = [];
+  CAND.forEach(m => out.push(...shuffle(BANCO.filter(q => q.modulo === m)).slice(0, per)));
+  const rest = shuffle(BANCO.filter(q => !out.includes(q)));
+  out.push(...rest.filter(q => !CAND.includes(q.modulo)).slice(0, n - out.length));
+  out.push(...rest.filter(q => !out.includes(q)).slice(0, n - out.length));
+  return out;
+}
+sel.onchange = () => { const n = pool().length; $("#num").max = n; if (+$("#num").value > n) $("#num").value = n; };
+sel.onchange();
+
+$("#go").onclick = () => {
+  const n = Math.max(1, Math.min(+$("#num").value || 30, pool().length));
+  REF = Math.max(1, Math.min(100, +$("#ref").value || 60));
+  start(sel.value === "__full" ? armar(n) : pool(), n, document.querySelector("input[name=modo]:checked").value, Math.max(0, +$("#min").value || 0));
+};
+
+function start(preguntas, n, modo, minutos) {
+  clearInterval(S && S.timer);
+  const items = shuffle(preguntas).slice(0, n).map(q => {
+    const idx = shuffle(q.opciones.map((_, i) => i));
+    return { q, opts: idx.map(i => q.opciones[i]), correct: idx.indexOf(q.correcta), pick: null };
+  });
+  S = { items, i: 0, modo, t0: Date.now(), limit: minutos * 60, timer: null };
+  if (S.limit) { S.timer = setInterval(tick, 1000); tick(); } else $("#clock").textContent = "";
+  show("quiz"); render();
+}
+
+function tick() {
+  const left = Math.max(0, S.limit - Math.floor((Date.now() - S.t0) / 1000));
+  $("#clock").textContent = "Tiempo: " + Math.floor(left / 60) + ":" + String(left % 60).padStart(2, "0");
+  if (!left) finish();
+}
+
+function render() {
+  const it = S.items[S.i], total = S.items.length;
+  $("#prog").textContent = "Pregunta " + (S.i + 1) + " de " + total;
+  $("#bar").style.width = (S.i / total * 100) + "%";
+  $("#modname").textContent = it.q.modulo;
+  $("#preg").textContent = it.q.pregunta;
+  const box = $("#opts"); box.textContent = "";
+  it.opts.forEach((t, k) => {
+    const b = mk("button", "opt"); b.type = "button";
+    b.append(mk("b", "", L[k] + ")"), mk("span", "", t));
+    b.onclick = () => pick(k);
+    box.append(b);
+  });
+  $("#next").textContent = S.i === total - 1 ? "Ver resultados" : "Siguiente";
+  paint();
+}
+
+function pick(k) {
+  const it = S.items[S.i];
+  if (S.modo === "estudio" && it.pick !== null) return;
+  it.pick = k; paint();
+}
+
+function paint() {
+  const it = S.items[S.i], fb = $("#fb"), done = it.pick !== null;
+  [...$("#opts").children].forEach((b, k) => {
+    b.className = "opt";
+    if (S.modo === "estudio" && done) {
+      b.disabled = true;
+      if (k === it.correct) b.classList.add("ok");
+      else if (k === it.pick) b.classList.add("bad");
+    } else if (k === it.pick) b.classList.add("sel");
+  });
+  fb.hidden = !(S.modo === "estudio" && done);
+  if (!fb.hidden) {
+    const ok = it.pick === it.correct;
+    fb.className = ok ? "" : "bad";
+    fb.textContent = (ok ? "Correcto. " : "Incorrecto. ") + it.q.explicacion;
+  }
+  $("#next").disabled = !done;
+}
+
+$("#next").onclick = () => { if (S.i === S.items.length - 1) finish(); else { S.i++; render(); } };
+$("#stop").onclick = finish;
+
+function finish() {
+  clearInterval(S.timer);
+  const resp = S.items.filter(x => x.pick !== null);
+  show("result");
+  if (!resp.length) { $("#score").textContent = "Sin respuestas"; $("#time").textContent = ""; $("#bymod").textContent = ""; $("#gates").textContent = ""; $("#errs").textContent = ""; $("#redo").hidden = true; return; }
+  const ok = resp.filter(x => x.pick === x.correct).length;
+  $("#score").textContent = ok + " / " + resp.length + " (" + Math.round(ok / resp.length * 100) + "%)";
+  $("#time").textContent = "Tiempo: " + ((Date.now() - S.t0) / 60000).toFixed(1) + " min";
+  const agg = {};
+  resp.forEach(x => { const a = agg[x.q.modulo] = agg[x.q.modulo] || [0, 0]; a[1]++; if (x.pick === x.correct) a[0]++; });
+  const g = $("#gates"), wrap = mk("div", "gates"), fallan = [], sin = [], glob = Math.round(ok / resp.length * 100);
+  g.textContent = "";
+  CAND.forEach(m => {
+    const a = agg[m], nom = NOM[m] || m, d = mk("div", "gate");
+    if (!a) { d.classList.add("no"); d.append(mk("b", "", nom + ": sin datos"), mk("span", "muted", "Sin preguntas respondidas")); sin.push(nom); }
+    else { const pct = Math.round(a[0] / a[1] * 100), pasa = pct >= REF; d.classList.add(pasa ? "ok" : "no"); d.append(mk("b", "", nom + ": " + (pasa ? "aprobado" : "por reforzar")), mk("span", "muted", a[0] + "/" + a[1] + " (" + pct + "%)")); if (!pasa) fallan.push(nom); }
+    wrap.append(d);
+  });
+  const todo = !fallan.length && !sin.length && glob >= REF;
+  const msg = todo ? "Con este resultado pasarías los 4 candados y la calificación global." : "Aún no pasarías. " + (fallan.length ? "Refuerza: " + fallan.join(", ") + ". " : "") + (sin.length ? "Sin datos de: " + sin.join(", ") + ". " : "") + (glob < REF ? "La calificación global (" + glob + "%) está por debajo del mínimo." : "");
+  g.append(mk("h2", "", "Candados"), wrap, mk("p", "verdict", msg));
+  const bm = $("#bymod"); bm.textContent = "";
+  Object.keys(agg).sort((a, b) => CAND.includes(b) - CAND.includes(a) || a.localeCompare(b)).forEach(m => {
+    const [a, n] = agg[m], pct = Math.round(a / n * 100);
+    const r = mk("div", "row");
+    r.append(mk("span", "", m + (CAND.includes(m) ? " (candado)" : "")), mk("span", "muted", a + "/" + n + " (" + pct + "%)" + (pct < REF ? ", repasar" : "")));
+    const tr = mk("div", "track"), br = mk("div", pct < REF ? "low" : ""); br.id = ""; br.style.cssText = "height:100%;background:" + (pct < REF ? "var(--bad)" : "var(--accent)") + ";width:" + pct + "%";
+    tr.append(br); r.append(tr); bm.append(r);
+  });
+  const bad = resp.filter(x => x.pick !== x.correct), e = $("#errs"); e.textContent = "";
+  if (bad.length) {
+    e.append(mk("h2", "", "Preguntas para repasar"));
+    bad.forEach(x => {
+      const d = mk("div", "err");
+      d.append(mk("p", "", x.q.pregunta), mk("p", "muted", "Tu respuesta: " + x.opts[x.pick]), mk("p", "", "Correcta: " + x.opts[x.correct]), mk("p", "muted", x.q.explicacion));
+      e.append(d);
+    });
+  }
+  const redo = $("#redo"); redo.hidden = !bad.length;
+  redo.onclick = () => start(bad.map(x => x.q), bad.length, S.modo, 0);
+}
+
+$("#again").onclick = () => { clearInterval(S && S.timer); show("setup"); };
+</script>
+</body>
+</html>
